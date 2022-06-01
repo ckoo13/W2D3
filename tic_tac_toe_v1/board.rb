@@ -46,6 +46,32 @@ class Board
     end
 
     def win_diagonal?(mark)
-        
+        #left-diagonal method
+        top_left = @grid[0][0]
+        mid_mid = @grid[1][1]
+        bottom_right = @grid[2][2]
+
+        if top_left == mark && mid_mid == mark && bottom_right == mark
+            return true
+        end
+
+        #right-diagonal method
+        top_right = @grid[0][2]
+        mid_mid = @grid[1][1]
+        bottom_left = @grid[2][0]
+
+        if top_right == mark || mid_mid == mark || bottom_left == mark
+            return true
+        end
+
+        false
+    end
+
+    def win?(mark)
+        self.win_row?(mark) || self.win_col?(mark) || self.win_diagonal?(mark)
+    end
+
+    def empty_positions?
+        @grid.any? { |row| row.any? { |ele| ele == "_"}}
     end
 end
