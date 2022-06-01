@@ -60,7 +60,7 @@ class Board
         mid_mid = @grid[1][1]
         bottom_left = @grid[2][0]
 
-        if top_right == mark || mid_mid == mark || bottom_left == mark
+        if top_right == mark && mid_mid == mark && bottom_left == mark
             return true
         end
 
